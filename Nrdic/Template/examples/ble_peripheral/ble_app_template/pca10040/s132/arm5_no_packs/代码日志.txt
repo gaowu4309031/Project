@@ -1,0 +1,60 @@
+
+dtae：2023-03-21
+----------------------------------------------------------------
+*增加蓝牙串口服务
+	1、服务添加编译完成后，代码无法运行
+		原因1：添加一个服务后需要增加蓝牙协议栈的空间，需要在keil的RAM分配界面按照需求重新分配
+		原因2：添加私有服务的数量宏定义
+
+	2、需要添加的文件app_fifo.c  app_uart_fifo.c
+	
+	3、需要在sdk_config.h中添加的宏定义
+		//==========================================================
+		// <q> APP_FIFO_ENABLED  - app_fifo - Software FIFO implementation
+		 
+
+		#ifndef APP_FIFO_ENABLED
+		#define APP_FIFO_ENABLED 1
+		#endif
+		
+		
+		// <e> APP_UART_ENABLED - app_uart - UART driver
+		//==========================================================
+		#ifndef APP_UART_ENABLED
+		#define APP_UART_ENABLED 1
+		#endif
+		// <o> APP_UART_DRIVER_INSTANCE  - UART instance used
+		 
+		// <0=> 0 
+
+		#ifndef APP_UART_DRIVER_INSTANCE
+		#define APP_UART_DRIVER_INSTANCE 0
+		#endif
+
+		// </e>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
